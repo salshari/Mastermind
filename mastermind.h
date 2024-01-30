@@ -1,7 +1,5 @@
 #include "response.h"
 #include "response.cpp"
-#include "code.h"
-#include "code.cpp"
 
 using namespace std;
 
