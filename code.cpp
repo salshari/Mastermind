@@ -1,3 +1,5 @@
+#include "code.h"
+
 class Code{
 private:
     int n;
