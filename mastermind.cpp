@@ -95,8 +95,12 @@ mastermind::mastermind() {}
       // if the user has used all ten guesses and still not guessed the code, they have lost
 		if (attempts == 10)
 		{
-			cout << "Sorry, you lose" << endl;
-			
+			cout << "Sorry, you lose. The Secret Code was: ";
+			for(int digit: secretCode)
+			{
+        		cout << digit << " ";
+			}
+
 			// the game is over, break out of the loop
 			break;
 		}
