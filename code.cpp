@@ -1,80 +1,73 @@
 #include "code.h"
 
-class Code{
-private:
-    int n;
-    int m;
-    vector<int> secretCode;
-public:
+// default constructor
+Code::Code (){}
 
-    // default constructor
-    Code (){}
+Code::Code(int length, int range): n(length), m(range) {}
 
-    Code(int length, int range): n(length), m(range) {}
+// full function definition for the randomlyInitialize function
+void Code::randomlyInitialize()
+{
+    // clear any previously saved secretCode
+    secretCode.clear();
 
-    // full function definition for the randomlyInitialize function
-    void randomlyInitialize(){
+    for (int i = 0; i < n; i++)
+    {
+        secretCode.push_back(rand()%m);
+    }
+}
 
-        // clear any previously saved secretCode
-        secretCode.clear();
+// full function defintion for the checkCorrect function
+int Code::checkCorrect(const vector<int>& guess)
+{
+    // initialize the number of correctDigits to 0
+    int correctDigits = 0;
 
-        for (int i = 0; i < n; i++)
+    // if the guess is not the correct length, the user has given an invalid argument
+    if (guess.size() != n)
+    {
+        throw invalid_argument("Invalid guess length");
+    }
+        
+    for (int i = 0; i < n; i++)
+    {
+        if (guess[i] == secretCode[i])
         {
-            secretCode.push_back(rand()%m);
+            correctDigits += 1;
         }
     }
 
-    // full function defintion for the checkCorrect function
-    int checkCorrect(const vector<int>& guess)
-    {
-        // initialize the number of correctDigits to 0
-        int correctDigits = 0;
+    return correctDigits;
+}
 
-        // if the guess is not the correct length, the user has given an invalid argument
-        if (guess.size() != n)
-        {
-            throw invalid_argument("Invalid guess length");
-        }
+// full function definiton for the checkIncorrect function
+int Code::checkIncorrect(const vector<int>&guess)
+{
+    int incorrectDigits = 0;
+
+    if (guess.size() != n)
+    {
+        throw invalid_argument("Invalid guess length");
+    }
         
-        for (int i = 0; i < n; i++)
+    vector<bool> secretUsed(n,false);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
         {
-            if (guess[i] == secretCode[i])
+            if(!secretUsed[j] && guess[i] == secretCode[j])
             {
-                correctDigits += 1;
+                incorrectDigits += 1;
+                secretUsed[j] = true;
+                break;
             }
         }
-
-        return correctDigits;
     }
+    return incorrectDigits;
+}
 
-    // full function definiton for the checkIncorrect function
-    int checkIncorrect(const vector<int>&guess)
-    {
-        int incorrectDigits = 0;
-
-        if (guess.size() != n)
-        {
-            throw invalid_argument("Invalid guess length");
-        }
-        
-        vector<bool> secretUsed(n,false);
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                if(!secretUsed[j] && guess[i] == secretCode[j])
-                {
-                    incorrectDigits += 1;
-                    secretUsed[j] = true;
-                    break;
-                }
-            }
-        }
-        return incorrectDigits;
-    }
-    const vector<int>&getSecretCode() const {
-        return secretCode;
-    }
-
-};
+const vector<int>&getSecretCode() const 
+{
+    return secretCode;
+}
