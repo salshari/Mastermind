@@ -3,7 +3,7 @@
 // default constructor
 Response::Response(){}
 
-Response::Response(int correct=0, int incorrect=0) : correctDigits(correct), incorrectDigits(incorrect){}
+Response::Response(int correct = 0, int incorrect = 0) : correctDigits(correct), incorrectDigits(incorrect){}
 
 // full function definition for the getCorrectDigits function
 int Response::getCorrectDigits() const 
@@ -30,7 +30,7 @@ void Response::setIncorrectDigits(int incorrect)
 }
 
 // overloaded operator == which compares responses and returns true if they are equal
-bool Response::operator ==(const Response& other)const
+bool Response::operator == (const Response& other)const
 {
     return (correctDigits==other.correctDigits) && (incorrectDigits == other.incorrectDigits);
 }
