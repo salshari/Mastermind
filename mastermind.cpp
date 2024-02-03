@@ -1,5 +1,9 @@
 // include necessary header file
 #include "mastermind.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 // the constructor 
 mastermind::mastermind() {}
@@ -12,7 +16,7 @@ mastermind::mastermind() {}
     // print the code to the screen
     cout << "The secret code is " << endl;
 
-    for (int z = 0; z < 4, z++)
+    for (int z = 0; z < 4; z++)
 	{
         cout << tempCode[z] << "," ;
     }
@@ -28,8 +32,8 @@ mastermind::mastermind() {}
     vector<int> tempHumanCodeGuess;
 
     // initialize the human guess 
-    x.getHumanCode();
-    tempHumanCodeGuess = x.getHumanCode;
+    x.initializeHumanCode();
+    tempHumanCodeGuess = x.initializeHumanCode();
     return tempHumanCodeGuess;
 
  }
@@ -40,9 +44,11 @@ mastermind::mastermind() {}
    // make a response object
    Response y;
 
+   vector<int> userGuess = x.initializeHumanCode();
+
    // set the correct and incorrect responses
-   y.setCorrectDigits(x);
-   y.setIncorrectDigits(x);
+   y.setCorrectDigits(x.checkIncorrect(userGuess));
+   y.setIncorrectDigits(x.checkIncorrect(userGuess));
 
    return y;
 
@@ -78,7 +84,7 @@ mastermind::mastermind() {}
 		x.initializeHumanCode();
 		y = getResponse();
 		isSolved(y);
-		y.printResponse();
+		cout << y;
 
 		// increase the number of attempts by 1
 		attempts++;
@@ -96,10 +102,7 @@ mastermind::mastermind() {}
 		if (attempts == 10)
 		{
 			cout << "Sorry, you lose. The Secret Code was: ";
-			for(int digit: secretCode)
-			{
-        		cout << digit << " ";
-			}
+			printCode();
 
 			// the game is over, break out of the loop
 			break;

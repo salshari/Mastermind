@@ -1,5 +1,8 @@
+#pragma once
 #include <iostream>
 #include <vector>
+#ifndef CODE_H
+#define CODE_H
 
 using namespace std;
 
@@ -13,9 +16,11 @@ class Code
     // range of code sequence is [0,m-1]
     int m;
 
-    vector<int> secretCode;
-    
     public:
+
+    vector<int> getSecretCode() const;
+    
+    Code (){};
 
     // constructor 
     Code(int length, int range);
@@ -35,4 +40,9 @@ class Code
     No digit in the guess or the code is counted more than once
     */
     int checkIncorrect(const vector<int>&guess);
+
+    vector<int> initializeHumanCode() const;
+
 };
+
+#endif

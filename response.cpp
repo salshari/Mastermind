@@ -1,4 +1,4 @@
-#include "Response.h"
+#include "response.h"
 
 // default constructor
 Response::Response(){}
@@ -6,25 +6,25 @@ Response::Response(){}
 Response::Response(int correct = 0, int incorrect = 0) : correctDigits(correct), incorrectDigits(incorrect){}
 
 // full function definition for the getCorrectDigits function
-int Response::getCorrectDigits() const 
+Code Response::getCorrectDigits() const 
 {
     return correctDigits;
 }
 
 // full function definition for the getIncorrectDigits function
-int Response::getIncorrectDigits() const
+Code Response::getIncorrectDigits() const
 {
     return incorrectDigits;
 }
 
 // full function definition for the setCorrectDigits function
-void Response::setCorrectDigits(int correct)
+Code Response::setCorrectDigits(Code correct)
 {
     correctDigits=correct;
 }
 
 // full function definition for the getIncorrectDigits function
-void Response::setIncorrectDigits(int incorrect)
+Code Response::setIncorrectDigits(Code incorrect)
 {
     incorrectDigits=incorrect;
 }
@@ -36,7 +36,7 @@ bool Response::operator == (const Response& other)const
 }
 
 // overloaded operator that prints a repsonse
-std::ostream& operator<<(ostream&out,Response&A)
+ostream& Response::operator << (ostream&out,const Response&A) 
 {
     out << "Correct Digits: " << A.correctDigits<< "Incorrect Digits: "<< A.incorrectDigits << endl;
 }

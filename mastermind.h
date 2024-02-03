@@ -1,5 +1,8 @@
+#pragma once
 #include "response.h"
-#include "response.cpp"
+#ifndef MASTERMIND_H
+#define MASTERMIND_H
+
 
 using namespace std;
 
@@ -30,3 +33,5 @@ class mastermind{
     */
     void playGame();
 };
+
+#endif

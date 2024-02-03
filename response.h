@@ -1,7 +1,9 @@
+#pragma once
 #include "code.h"
-#include "code.cpp"
-
 #include <iostream>
+#ifndef RESPONSE_H
+#define RESPONSE_H
+
 
 using namespace std;
 
@@ -11,6 +13,9 @@ class Response
         int correctDigits;
         int incorrectDigits;
     public:
+
+        Response(){}
+        
         Response(int correct, int incorrect);
 
         int getCorrectDigits() const ;
@@ -26,3 +31,5 @@ class Response
         friend ostream& operator<<(ostream&out,Response&A);
 
     };
+
+#endif
