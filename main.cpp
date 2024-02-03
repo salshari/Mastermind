@@ -8,5 +8,7 @@ using namespace std;
 
 int main () 
 {
-    return 0;
+    // make a mastermind object
+    mastermind game;
+    game.playGame;
 }
