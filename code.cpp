@@ -67,6 +67,17 @@ int Code::checkIncorrect(const vector<int>&guess)
     return incorrectDigits;
 }
 
+//initializes a vector to store human code
+vector<int>initializeHumanCode()const{
+    vector<int> guess (n, 0);
+    cout<<"Enter your guess (separate each digit with a space"<<endl;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> guess[i];
+    }
+        return guess;
+    }
+
 const vector<int>&getSecretCode() const 
 {
     return secretCode;
