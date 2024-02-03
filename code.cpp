@@ -5,6 +5,11 @@
 
 Code::Code(int length, int range): n(length), m(range) {}
 
+vector<int> Code::getSecretCode() const 
+{
+    return secretCode;
+}
+
 // full function definition for the randomlyInitialize function
 void Code::randomlyInitialize()
 {
@@ -78,7 +83,3 @@ vector<int> Code::initializeHumanCode()const{
         return guess;
     }
 
-vector<int> Code::getSecretCode() const 
-{
-    return secretCode;
-}

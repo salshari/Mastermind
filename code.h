@@ -16,6 +16,9 @@ class Code
     // range of code sequence is [0,m-1]
     int m;
 
+    vector<int> secretCode;
+
+
     public:
 
     vector<int> getSecretCode() const;
