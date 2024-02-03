@@ -13,7 +13,7 @@ mastermind::mastermind() {}
     cout << "The secret code is " << endl;
 
     for (int z = 0; z < 4, z++)
-    {
+	{
         cout << tempCode[z] << "," ;
     }
 

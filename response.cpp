@@ -1,53 +1,42 @@
-#include "code.h"
-#include "code.cpp"
+#include "Response.h"
 
-class Response
+// default constructor
+Response::Response(){}
+
+Response::Response(int correct=0, int incorrect=0) : correctDigits(correct), incorrectDigits(incorrect){}
+
+// full function definition for the getCorrectDigits function
+int Response::getCorrectDigits() const 
 {
-    private:
-    int correctDigits;
-    int incorrectDigits;
-    
-    public:
+    return correctDigits;
+}
 
-    // default constructor
-    Response() {}
+// full function definition for the getIncorrectDigits function
+int Response::getIncorrectDigits() const
+{
+    return incorrectDigits;
+}
 
-    Response(int correct=0, int incorrect=0) : correctDigits(correct), incorrectDigits(incorrect){}
+// full function definition for the setCorrectDigits function
+void Response::setCorrectDigits(int correct)
+{
+    correctDigits=correct;
+}
 
-    // full function definition for the getCorrectDigits function
-    int getCorrectDigits() const 
-    {
-        return correctDigits;
-    }
+// full function definition for the getIncorrectDigits function
+void Response::setIncorrectDigits(int incorrect)
+{
+    incorrectDigits=incorrect;
+}
 
-    // full function definition for the getIncorrectDigits function
-    int getIncorrectDigits() const
-    {
-        return incorrectDigits;
-    }
+// overloaded operator == which compares responses and returns true if they are equal
+bool Response::operator ==(const Response& other)const
+{
+    return (correctDigits==other.correctDigits) && (incorrectDigits == other.incorrectDigits);
+}
 
-    // full function definition for the setCorrectDigits function
-    void setCorrectDigits(int correct)
-    {
-        correctDigits = correct;
-    }
-
-    // full function definition for the getIncorrectDigits function
-    void setIncorrectDigits(int incorrect)
-    {
-        incorrectDigits = incorrect;
-    }
-
-    // overloaded operator == which compares responses and returns true if they are equal
-    bool operator == (const Response& other)const
-    {
-        return (correctDigits == other.correctDigits) && (incorrectDigits == other.incorrectDigits);
-    }
-
-    // overloaded operator that prints a repsonse
-    friend ostream& operator<<(ostream&out, Response&A)
-    {
-        out << "Correct Digits: " << A.correctDigits<< "Incorrect Digits: "<< A.incorrectDigits << endl;
-    }
-
-};
+// overloaded operator that prints a repsonse
+std::ostream& operator<<(ostream&out,Response&A)
+{
+    out << "Correct Digits: " << A.correctDigits<< "Incorrect Digits: "<< A.incorrectDigits << endl;
+}
