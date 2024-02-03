@@ -1,18 +1,18 @@
-myItem: Response.o Code.o Mastermind.o main.o
-	g++ main.o Response.o Code.o Mastermind.o -o myItem
+myItem: response.o code.o mastermind.o main.o
+	g++ main.o response.o code.o mastermind.o -o myItem
 
 
-main.o: main.cpp Code.h Response.h Mastermind.h
+main.o: main.cpp code.h response.h mastermind.h
 	g++ -c main.cpp
 
-Response.o: Response.cpp Response.h Code.h Mastermind.h
-	g++ -c Response.cpp
+response.o: response.cpp response.h code.h mastermind.h
+	g++ -c response.cpp
 
-Code.o: Code.cpp Code.h Mastermind.h
-	g++ -c Code.cpp
+code.o: code.cpp code.h mastermind.h
+	g++ -c code.cpp
 
-Mastermind.o: Mastermind.cpp Mastermind.h
-	g++ -c Mastermind.cpp
+mastermind.o: mastermind.cpp mastermind.h
+	g++ -c mastermind.cpp
 
 clean:
-	rm main.o Response.o Code.o Mastermind.o
+	rm main.o response.o code.o mastermind.o
