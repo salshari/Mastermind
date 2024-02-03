@@ -1,32 +1,52 @@
 #include "code.h"
 #include "code.cpp"
 
-class Response{
-private:
+class Response
+{
+    private:
     int correctDigits;
     int incorrectDigits;
-public:
+    
+    public:
+
+    // default constructor
+    Response() {}
+
     Response(int correct=0, int incorrect=0) : correctDigits(correct), incorrectDigits(incorrect){}
 
-    int getCorrectDigits() const {
+    // full function definition for the getCorrectDigits function
+    int getCorrectDigits() const 
+    {
         return correctDigits;
     }
 
-    int getIncorrectDigits() const{
+    // full function definition for the getIncorrectDigits function
+    int getIncorrectDigits() const
+    {
         return incorrectDigits;
     }
 
-    void setCorrectDigits(int correct){
-        correctDigits=correct;
+    // full function definition for the setCorrectDigits function
+    void setCorrectDigits(int correct)
+    {
+        correctDigits = correct;
     }
 
-    void setIncorrectDigits(int incorrect){
-        incorrectDigits=incorrect;
+    // full function definition for the getIncorrectDigits function
+    void setIncorrectDigits(int incorrect)
+    {
+        incorrectDigits = incorrect;
     }
-    bool operator ==(const Response& other)const{
-        return (correctDigits==other.correctDigits) && (incorrectDigits == other.incorrectDigits);
+
+    // overloaded operator == which compares responses and returns true if they are equal
+    bool operator == (const Response& other)const
+    {
+        return (correctDigits == other.correctDigits) && (incorrectDigits == other.incorrectDigits);
     }
-    friend ostream& operator<<(ostream&out,Response&A){
+
+    // overloaded operator that prints a repsonse
+    friend ostream& operator<<(ostream&out, Response&A)
+    {
         out << "Correct Digits: " << A.correctDigits<< "Incorrect Digits: "<< A.incorrectDigits << endl;
     }
 
