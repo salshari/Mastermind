@@ -7,7 +7,7 @@ mastermind::mastermind() {}
 // full function definition for the printCode function
  void mastermind::printCode() const
  {
-    vector<int> tempCode = x.getCode();
+    vector<int> tempCode = x.getSecretCode();
 
     // print the code to the screen
     cout << "The secret code is " << endl;
@@ -35,49 +35,68 @@ mastermind::mastermind() {}
  }
 
  // full function definition for the getResponse function
- response mastermind::getRepsonse()
+ Response mastermind::getResponse()
  {
    // make a response object
-   response y;
+   Response y;
 
    // set the correct and incorrect responses
-   y.incorrectResponse(x);
-   y.correctResponse(x);
+   y.setCorrectDigits(x);
+   y.setIncorrectDigits(x);
 
    return y;
 
  }
 
  // full function defintion for the isSolved function
- bool mastermind::isSolved(response y)
- {
-
+ bool mastermind::isSolved(Response y)
+ { 
+   int totalCorrect = y.getCorrectDigits();
+	if (totalCorrect == 4)
+	{
+		return true;
+	}
+	else
+		return false;
  }
 
  // full function definition for the playGame function
  void mastermind::playGame()
  {
-   response y;
-	x.initializeSecretCode();
+	// create a Response object, y
+	Response y;
+
+	
+	x.randomlyInitialize();
 	printCode();
-	int gameCounter = 0;
-	while (isSolved(y) == false || gameCounter < 10)
+	int attempts = 0;
+
+	// while the guess has not been solved and the user has used less than 10 attempts, do the following
+	while (isSolved(y) == false || attempts < 10)
 	{
 		x.initializeHumanCode();
 		y = getResponse();
 		isSolved(y);
 		y.printResponse();
-		gameCounter++;
+
+		// increase the number of attempts by 1
+		attempts++;
+
+      // if the user guess matches the secret code, the user has won
 		if (isSolved(y) == true)
 		{
-			cout << "You win" << endl;
-			system("pause");
+			cout << "Congratulations! You win!" << endl;
+			
+			// the game is over, break out of the loop
 			break;
 		}
-		if (gameCounter == 10)
+
+      // if the user has used all ten guesses and still not guessed the code, they have lost
+		if (attempts == 10)
 		{
-			cout << "You lose" << endl;
-			system("pause");
+			cout << "Sorry, you lose" << endl;
+			
+			// the game is over, break out of the loop
 			break;
 		}
 	}
