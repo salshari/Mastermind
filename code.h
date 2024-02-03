@@ -18,7 +18,7 @@ class Code
     public:
 
     // constructor 
-    Code();
+    Code(int length, int range);
 
     // function to initialize the code randomly
     void randomlyInitialize();
@@ -27,12 +27,12 @@ class Code
     function with guess as a parameter (another code object) that returns the 
     number of correct digits in the correct location 
     */
-    int checkCorrect();
+    int checkCorrect(const vector<int>& guess);
 
     /*
     function with guess as a parameter (another code object) that returns the 
     number of correct digits in the incorrect location.
     No digit in the guess or the code is counted more than once
     */
-    int checkIncorrect();
+    int checkIncorrect(const vector<int>&guess);
 };
