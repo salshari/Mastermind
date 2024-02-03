@@ -63,13 +63,14 @@ mastermind::mastermind() {}
  // full function definition for the playGame function
  void mastermind::playGame()
  {
+	// initialize the number of user attempts to 0
+	int attempts = 0;
+
 	// create a Response object, y
 	Response y;
 
-	
 	x.randomlyInitialize();
 	printCode();
-	int attempts = 0;
 
 	// while the guess has not been solved and the user has used less than 10 attempts, do the following
 	while (isSolved(y) == false || attempts < 10)
