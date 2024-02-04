@@ -1,7 +1,6 @@
 myItem: response.o code.o mastermind.o main.o
 	g++ main.o response.o code.o mastermind.o -o myItem
 
-
 main.o: main.cpp code.h response.h mastermind.h
 	g++ -c main.cpp
 

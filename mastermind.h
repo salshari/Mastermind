@@ -7,13 +7,21 @@
 using namespace std;
 
 class mastermind{
-    public:
+    private:
 
+    int n;
+    int m;
+    
+    public:
+       
     // code object as data member 
     Code x;
 
-    // constructor
+    // default constructor
     mastermind();
+
+    // constructor
+    mastermind(int length, int range);
 
     // function to print code
     void printCode() const;

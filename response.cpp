@@ -32,11 +32,11 @@ void Response::setIncorrectDigits(Code x)
 // overloaded operator == which compares responses and returns true if they are equal
 bool Response::operator == (const Response& other)const
 {
-    return (correctDigits==other.correctDigits) && (incorrectDigits == other.incorrectDigits);
+    return (correctDigits == other.correctDigits) && (incorrectDigits == other.incorrectDigits);
 }
 
 // overloaded operator that prints a repsonse
-ostream& operator << (ostream&out,const Response&A) 
+ostream& operator<< (ostream&out,const Response& y) 
 {
-    out << "Correct Digits: " << A.correctDigits<< "Incorrect Digits: "<< A.incorrectDigits << endl;
+    out << "Correct Digits: " << y.correctDigits<< endl << "Incorrect Digits: "<< y.incorrectDigits << endl;
 }

@@ -10,26 +10,35 @@ using namespace std;
 class Response
 {
     private:
-        int correctDigits;
-        int incorrectDigits;
+
+    int correctDigits;
+    int incorrectDigits;
+
     public:
 
-        Response();
+    // default constructor
+    Response();
         
-        Response(int correct, int incorrect);
+    Response(int correct, int incorrect);
 
-        int getCorrectDigits() const ;
+    // function that gets correct digits in correct location
+    int getCorrectDigits() const ;
 
-        int getIncorrectDigits() const;
+    // function that gets correct digits in incorrect location
+    int getIncorrectDigits() const;
 
-        void setCorrectDigits(Code x);
+    // function that sets correct digits in correct location
+    void setCorrectDigits(Code x);
 
-        void setIncorrectDigits(Code x);
+    // function that sets correct digits in incorrect location
+    void setIncorrectDigits(Code x);
 
-        bool operator ==(const Response& other)const;
+    // overloaded operator that compares responses and returns true if they are equal
+    bool operator ==(const Response& other)const;
 
-        friend std::ostream& operator<<(ostream& out, const Response& A);
+    // verloaded operator << that prints a response
+    friend std::ostream& operator<<(ostream& out, const Response& y);
 
-    };
+};
 
 #endif

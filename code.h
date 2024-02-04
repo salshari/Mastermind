@@ -8,7 +8,7 @@ using namespace std;
 
 class Code
 {
-    private:
+    public:
 
     // length of code sequence
     int n;
@@ -16,15 +16,17 @@ class Code
     // range of code sequence is [0,m-1]
     int m;
 
+    vector<int> getHumanCode() const;
+
+    vector<int> getSecretCode() const;
+    
     vector<int> secretCode;
 
     vector<int> guess;
 
+    void initializeHumanCode();
 
-    public:
-
-    vector<int> getSecretCode() const;
-    
+    // default constructor
     Code ();
 
     // constructor 
@@ -45,10 +47,6 @@ class Code
     No digit in the guess or the code is counted more than once
     */
     int checkIncorrect();
-
-    vector<int> initializeHumanCode() const;
-
-    vector<int> getHumanCode() const;
 
 };
 
