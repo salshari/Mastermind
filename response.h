@@ -14,7 +14,7 @@ class Response
         int incorrectDigits;
     public:
 
-        Response(){}
+        Response();
         
         Response(int correct, int incorrect);
 
@@ -22,13 +22,13 @@ class Response
 
         int getIncorrectDigits() const;
 
-        void setCorrectDigits(int correct);
+        void setCorrectDigits(Code x);
 
-        void setIncorrectDigits(int incorrect);
+        void setIncorrectDigits(Code x);
 
         bool operator ==(const Response& other)const;
 
-        friend ostream& operator<<(ostream&out,Response&A);
+        friend std::ostream& operator<<(ostream& out, const Response& A);
 
     };
 

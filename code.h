@@ -18,12 +18,14 @@ class Code
 
     vector<int> secretCode;
 
+    vector<int> guess;
+
 
     public:
 
     vector<int> getSecretCode() const;
     
-    Code (){};
+    Code ();
 
     // constructor 
     Code(int length, int range);
@@ -35,16 +37,18 @@ class Code
     function with guess as a parameter (another code object) that returns the 
     number of correct digits in the correct location 
     */
-    int checkCorrect(const vector<int>& guess);
+    int checkCorrect();
 
     /*
     function with guess as a parameter (another code object) that returns the 
     number of correct digits in the incorrect location.
     No digit in the guess or the code is counted more than once
     */
-    int checkIncorrect(const vector<int>&guess);
+    int checkIncorrect();
 
     vector<int> initializeHumanCode() const;
+
+    vector<int> getHumanCode() const;
 
 };
 

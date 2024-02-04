@@ -1,7 +1,7 @@
 #include "code.h"
 
 // default constructor
-// Code::Code() {}
+Code::Code() {}
 
 Code::Code(int length, int range): n(length), m(range) {}
 
@@ -23,7 +23,7 @@ void Code::randomlyInitialize()
 }
 
 // full function defintion for the checkCorrect function
-int Code::checkCorrect(const vector<int>& guess)
+int Code::checkCorrect()
 {
     // initialize the number of correctDigits to 0
     int correctDigits = 0;
@@ -46,7 +46,7 @@ int Code::checkCorrect(const vector<int>& guess)
 }
 
 // full function definiton for the checkIncorrect function
-int Code::checkIncorrect(const vector<int>&guess)
+int Code::checkIncorrect()
 {
     int incorrectDigits = 0;
 
@@ -74,6 +74,7 @@ int Code::checkIncorrect(const vector<int>&guess)
 
 //initializes a vector to store human code
 vector<int> Code::initializeHumanCode()const{
+
     vector<int> guess (n, 0);
     cout<<"Enter your guess (separate each digit with a space)"<<endl;
     for(int i = 0; i < n; i++)
@@ -83,3 +84,7 @@ vector<int> Code::initializeHumanCode()const{
         return guess;
     }
 
+vector<int> Code::getHumanCode() const 
+{
+    return guess;   
+}

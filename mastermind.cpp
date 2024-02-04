@@ -47,8 +47,8 @@ mastermind::mastermind() {}
    vector<int> userGuess = x.initializeHumanCode();
 
    // set the correct and incorrect responses
-   y.setCorrectDigits(x.checkIncorrect(userGuess));
-   y.setIncorrectDigits(x.checkIncorrect(userGuess));
+   y.setCorrectDigits(x);
+   y.setIncorrectDigits(x);
 
    return y;
 
