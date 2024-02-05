@@ -1,0 +1,11 @@
+output: code.o main.o
+	g++ main.o code.o -o output
+
+main.o: main.cpp code.h 
+	g++ -c main.cpp
+
+code.o: code.cpp code.h 
+	g++ -c code.cpp
+
+clean:
+	rm main.o code.o
